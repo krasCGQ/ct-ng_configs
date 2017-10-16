@@ -1,0 +1,4 @@
+# We only want to push crosstool-ng configs and .gitignore
+*
+!.gitignore
+!config.*
