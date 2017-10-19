@@ -563,9 +563,20 @@ CT_MPFR_SIGNATURE_FORMAT="packed/.asc"
 #
 CT_ISL_DIR_NAME="isl"
 CT_ISL_PKG_NAME="isl"
-CT_ISL_SRC_RELEASE=y
-# CT_ISL_SRC_DEVEL is not set
+# CT_ISL_SRC_RELEASE is not set
+CT_ISL_SRC_DEVEL=y
+CT_ISL_DEVEL_VCS_git=y
+# CT_ISL_DEVEL_VCS_svn is not set
+# CT_ISL_DEVEL_VCS_hg is not set
+# CT_ISL_DEVEL_VCS_cvs is not set
+CT_ISL_DEVEL_VCS="git"
+CT_ISL_DEVEL_URL="git://repo.or.cz/isl.git"
+CT_ISL_DEVEL_BRANCH="refs/heads/master"
+CT_ISL_DEVEL_REVISION=""
+CT_ISL_DEVEL_SUBDIR=""
+CT_ISL_DEVEL_BOOTSTRAP="./autogen.sh"
 # CT_ISL_SRC_CUSTOM is not set
+# CT_ISL_VERY_NEW is not set
 CT_ISL_V_0_18=y
 # CT_ISL_V_0_17_1 is not set
 # CT_ISL_V_0_16_1 is not set
