@@ -1,4 +1,4 @@
-From 70c28a9afc08cdc195ff49a08285bcda8648724f Mon Sep 17 00:00:00 2001
+From 9d0d79cc874d5575ae6e2066de8258a0dd78d063 Mon Sep 17 00:00:00 2001
 From: Albert I <krascgq@outlook.co.id>
 Date: Tue, 17 Oct 2017 08:44:47 +0800
 Subject: [PATCH] Add ndk-r16-beta1
@@ -25,5 +25,5 @@ diff --git a/packages/android-ndk/r16-beta1/version.desc b/packages/android-ndk/
 new file mode 100644
 index 00000000..e69de29b
 -- 
-2.15.0.rc0
+2.15.0.rc2
 

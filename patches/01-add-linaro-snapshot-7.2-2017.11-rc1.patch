@@ -1,66 +1,71 @@
-From 8da8080a99c274110344df8c0a341209a696f624 Mon Sep 17 00:00:00 2001
+From 916747254701c23622df9ae75416884d68a0cf20 Mon Sep 17 00:00:00 2001
 From: Albert I <krascgq@outlook.co.id>
 Date: Wed, 18 Oct 2017 00:31:43 +0800
-Subject: [PATCH] Add Linaro Snapshot 7.2-2017.10
+Subject: [PATCH] Add Linaro Snapshot 7.2-2017.11-rc1
 
 The only reason to add this is to workaround some shit that happens
 with crosstool-ng with non-tarball sourced GCC.
 
-Download the TC manually at https://snapshots.linaro.org.
+Download the TC manually at:
+https://git.linaro.org/toolchain/gcc.git/snapshot/gcc-linaro-7.2-2017.11-rc1.tar.gz
+
+Then do
+$ gzip -d gcc-linaro-7.2-2017.11-rc1.tar.gz
+$ xz -qe9 gcc-linaro-7.2-2017.11-rc1.tar
 
 Signed-off-by: Albert I <krascgq@outlook.co.id>
 ---
- .../snapshot-7.2-2017.10/100-uclibc-conf.patch     |  15 +
+ .../7.2-2017.11-rc1/100-uclibc-conf.patch          |  15 +
  .../1000-libtool-leave-framework-alone.patch       |  14 +
  ...t-need-undefined-extern-var-refs-nor-fpic.patch | 160 ++++++
  ...380-gcc-plugin-POSIX-include-sys-select-h.patch |  11 +
- .../810-arm-softfloat-libgcc.patch                 |  30 ++
- .../snapshot-7.2-2017.10/860-cilk-wchar.patch      |  56 +++
- .../891-fix-m68k-uclinux.patch                     |  18 +
+ .../7.2-2017.11-rc1/810-arm-softfloat-libgcc.patch |  30 ++
+ .../7.2-2017.11-rc1/860-cilk-wchar.patch           |  56 +++
+ .../7.2-2017.11-rc1/891-fix-m68k-uclinux.patch     |  18 +
  .../900-libgfortran-missing-include.patch          |  10 +
  .../910-nios2-bad-multilib-default.patch           |  28 ++
  .../930-libgcc-disable-split-stack-nothreads.patch |  14 +
- .../snapshot-7.2-2017.10/951-bionic-ndk.patch      |  58 +++
- .../snapshot-7.2-2017.10/952-bionic-errno.patch    |  19 +
- .../snapshot-7.2-2017.10/970-crystax.patch         | 553 +++++++++++++++++++++
- .../snapshot-7.2-2017.10/971-crystax.patch         |  25 +
- .../snapshot-7.2-2017.10/972-crystax.patch         | 302 +++++++++++
- .../snapshot-7.2-2017.10/973-crystax.patch         |  20 +
- .../snapshot-7.2-2017.10/974-crystax.patch         |  24 +
- .../snapshot-7.2-2017.10/975-crystax.patch         |  31 ++
- .../snapshot-7.2-2017.10/976-crystax.patch         |  21 +
- .../snapshot-7.2-2017.10/977-crystax.patch         |  33 ++
- packages/gcc-linaro/snapshot-7.2-2017.10/chksum    |   4 +
- .../gcc-linaro/snapshot-7.2-2017.10/version.desc   |   0
+ .../7.2-2017.11-rc1/951-bionic-ndk.patch           |  58 +++
+ .../7.2-2017.11-rc1/952-bionic-errno.patch         |  19 +
+ .../gcc-linaro/7.2-2017.11-rc1/970-crystax.patch   | 553 +++++++++++++++++++++
+ .../gcc-linaro/7.2-2017.11-rc1/971-crystax.patch   |  25 +
+ .../gcc-linaro/7.2-2017.11-rc1/972-crystax.patch   | 302 +++++++++++
+ .../gcc-linaro/7.2-2017.11-rc1/973-crystax.patch   |  20 +
+ .../gcc-linaro/7.2-2017.11-rc1/974-crystax.patch   |  24 +
+ .../gcc-linaro/7.2-2017.11-rc1/975-crystax.patch   |  31 ++
+ .../gcc-linaro/7.2-2017.11-rc1/976-crystax.patch   |  21 +
+ .../gcc-linaro/7.2-2017.11-rc1/977-crystax.patch   |  33 ++
+ packages/gcc-linaro/7.2-2017.11-rc1/chksum         |   4 +
+ packages/gcc-linaro/7.2-2017.11-rc1/version.desc   |   0
  22 files changed, 1446 insertions(+)
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/100-uclibc-conf.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/1000-libtool-leave-framework-alone.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/380-gcc-plugin-POSIX-include-sys-select-h.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/810-arm-softfloat-libgcc.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/860-cilk-wchar.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/891-fix-m68k-uclinux.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/900-libgfortran-missing-include.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/910-nios2-bad-multilib-default.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/930-libgcc-disable-split-stack-nothreads.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/951-bionic-ndk.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/952-bionic-errno.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/970-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/971-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/972-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/973-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/974-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/975-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/976-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/977-crystax.patch
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/chksum
- create mode 100644 packages/gcc-linaro/snapshot-7.2-2017.10/version.desc
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/100-uclibc-conf.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/1000-libtool-leave-framework-alone.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/380-gcc-plugin-POSIX-include-sys-select-h.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/810-arm-softfloat-libgcc.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/860-cilk-wchar.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/891-fix-m68k-uclinux.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/900-libgfortran-missing-include.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/910-nios2-bad-multilib-default.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/930-libgcc-disable-split-stack-nothreads.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/951-bionic-ndk.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/952-bionic-errno.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/970-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/971-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/972-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/973-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/974-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/975-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/976-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/977-crystax.patch
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/chksum
+ create mode 100644 packages/gcc-linaro/7.2-2017.11-rc1/version.desc
 
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/100-uclibc-conf.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/100-uclibc-conf.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/100-uclibc-conf.patch b/packages/gcc-linaro/7.2-2017.11-rc1/100-uclibc-conf.patch
 new file mode 100644
 index 00000000..73d1f0d3
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/100-uclibc-conf.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/100-uclibc-conf.patch
 @@ -0,0 +1,15 @@
 +Index: b/contrib/regression/objs-gcc.sh
 +===================================================================
@@ -77,11 +82,11 @@ index 00000000..73d1f0d3
 + elif [ $H_REAL_TARGET = $H_REAL_HOST ] ; then
 +   make bootstrap || exit 1
 +   make install || exit 1
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/1000-libtool-leave-framework-alone.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/1000-libtool-leave-framework-alone.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/1000-libtool-leave-framework-alone.patch b/packages/gcc-linaro/7.2-2017.11-rc1/1000-libtool-leave-framework-alone.patch
 new file mode 100644
 index 00000000..bce09eb7
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/1000-libtool-leave-framework-alone.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/1000-libtool-leave-framework-alone.patch
 @@ -0,0 +1,14 @@
 +--- gcc-6.2.0/libtool-ldflags	2016-12-20 11:13:12.669668125 -0800
 ++++ gcc-6.2.0/libtool-ldflags	2016-12-20 11:28:34.894826286 -0800
@@ -97,11 +102,11 @@ index 00000000..bce09eb7
 + 	-f*|--*|-static-lib*|-shared-lib*|-B*)
 + 	    # Libtool does not ascribe any special meaning options
 + 	    # that begin with -f or with a double-dash.  So, it will
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch b/packages/gcc-linaro/7.2-2017.11-rc1/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch
 new file mode 100644
 index 00000000..d8986d5f
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/370-gcc-plugin-Win-Dont-need-undefined-extern-var-refs-nor-fpic.patch
 @@ -0,0 +1,160 @@
 +diff -urN gcc-5.3.0.orig/config/gcc-plugin.m4 gcc-5.3.0/config/gcc-plugin.m4
 +--- gcc-5.3.0.orig/config/gcc-plugin.m4	2015-12-19 14:39:04.120734900 +0000
@@ -263,11 +268,11 @@ index 00000000..d8986d5f
 +   ;
 +   return 0;
 + }
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/380-gcc-plugin-POSIX-include-sys-select-h.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/380-gcc-plugin-POSIX-include-sys-select-h.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/380-gcc-plugin-POSIX-include-sys-select-h.patch b/packages/gcc-linaro/7.2-2017.11-rc1/380-gcc-plugin-POSIX-include-sys-select-h.patch
 new file mode 100644
 index 00000000..12ef48ee
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/380-gcc-plugin-POSIX-include-sys-select-h.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/380-gcc-plugin-POSIX-include-sys-select-h.patch
 @@ -0,0 +1,11 @@
 +diff -urN gcc-5.3.0.orig/libcc1/connection.cc gcc-5.3.0/libcc1/connection.cc
 +--- gcc-5.3.0.orig/libcc1/connection.cc	2015-12-19 14:40:20.860479600 +0000
@@ -280,11 +285,11 @@ index 00000000..12ef48ee
 + #include <string.h>
 + #include <errno.h>
 + #include "marshall.hh"
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/810-arm-softfloat-libgcc.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/810-arm-softfloat-libgcc.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/810-arm-softfloat-libgcc.patch b/packages/gcc-linaro/7.2-2017.11-rc1/810-arm-softfloat-libgcc.patch
 new file mode 100644
 index 00000000..5efa7fd1
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/810-arm-softfloat-libgcc.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/810-arm-softfloat-libgcc.patch
 @@ -0,0 +1,30 @@
 +Index: b/gcc/config/arm/linux-elf.h
 +===================================================================
@@ -316,11 +321,11 @@ index 00000000..5efa7fd1
 + 
 + # Just for these, we omit the frame pointer since it makes such a big
 + # difference.
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/860-cilk-wchar.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/860-cilk-wchar.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/860-cilk-wchar.patch b/packages/gcc-linaro/7.2-2017.11-rc1/860-cilk-wchar.patch
 new file mode 100644
 index 00000000..1d9916f5
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/860-cilk-wchar.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/860-cilk-wchar.patch
 @@ -0,0 +1,56 @@
 +[PATCH] cilk: fix build without wchar
 +
@@ -378,11 +383,11 @@ index 00000000..1d9916f5
 + CILK_C_REDUCER_MIN_INDEX_INSTANCE(short,              short,      SHRT_MAX)
 + CILK_C_REDUCER_MIN_INDEX_INSTANCE(unsigned short,     ushort,     USHRT_MAX)
 + CILK_C_REDUCER_MIN_INDEX_INSTANCE(int,                int,        INT_MAX)
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/891-fix-m68k-uclinux.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/891-fix-m68k-uclinux.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/891-fix-m68k-uclinux.patch b/packages/gcc-linaro/7.2-2017.11-rc1/891-fix-m68k-uclinux.patch
 new file mode 100644
 index 00000000..4e186bd3
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/891-fix-m68k-uclinux.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/891-fix-m68k-uclinux.patch
 @@ -0,0 +1,18 @@
 +avoids internal compiler error while compiling linux-atomic.c
 +See here:
@@ -402,11 +407,11 @@ index 00000000..4e186bd3
 + 	md_unwind_header=m68k/linux-unwind.h
 + 	;;
 + m68k-*-linux*)			# Motorola m68k's running GNU/Linux
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/900-libgfortran-missing-include.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/900-libgfortran-missing-include.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/900-libgfortran-missing-include.patch b/packages/gcc-linaro/7.2-2017.11-rc1/900-libgfortran-missing-include.patch
 new file mode 100644
 index 00000000..1f474696
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/900-libgfortran-missing-include.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/900-libgfortran-missing-include.patch
 @@ -0,0 +1,10 @@
 +--- gcc-6.3.0/libgfortran/io/close.c.org	2017-01-17 09:43:48.395850000 +0100
 ++++ gcc-6.3.0/libgfortran/io/close.c	2017-01-17 09:21:05.000000000 +0100
@@ -418,11 +423,11 @@ index 00000000..1f474696
 + 
 + typedef enum
 + { CLOSE_DELETE, CLOSE_KEEP, CLOSE_UNSPECIFIED }
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/910-nios2-bad-multilib-default.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/910-nios2-bad-multilib-default.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/910-nios2-bad-multilib-default.patch b/packages/gcc-linaro/7.2-2017.11-rc1/910-nios2-bad-multilib-default.patch
 new file mode 100644
 index 00000000..61989e56
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/910-nios2-bad-multilib-default.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/910-nios2-bad-multilib-default.patch
 @@ -0,0 +1,28 @@
 +diff -ur gcc-6.2.0.orig/gcc/config/nios2/nios2.h gcc-6.2.0/gcc/config/nios2/nios2.h
 +--- gcc-6.2.0.orig/gcc/config/nios2/nios2.h	2016-11-29 10:27:50.364479625 -0800
@@ -452,11 +457,11 @@ index 00000000..61989e56
 ++# MULTILIB_OPTIONS += mel/meb
 + # MULTILIB_DIRNAMES += le be
 +-# MULTILIB_MATCHES += EL=mel EB=meb
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/930-libgcc-disable-split-stack-nothreads.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/930-libgcc-disable-split-stack-nothreads.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/930-libgcc-disable-split-stack-nothreads.patch b/packages/gcc-linaro/7.2-2017.11-rc1/930-libgcc-disable-split-stack-nothreads.patch
 new file mode 100644
 index 00000000..07f9a739
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/930-libgcc-disable-split-stack-nothreads.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/930-libgcc-disable-split-stack-nothreads.patch
 @@ -0,0 +1,14 @@
 +disable split-stack for non-thread builds
 +
@@ -472,11 +477,11 @@ index 00000000..07f9a739
 ++ifeq ($(enable_threads),yes)
 + LIB2ADD_ST += $(srcdir)/generic-morestack.c $(srcdir)/generic-morestack-thread.c
 ++endif
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/951-bionic-ndk.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/951-bionic-ndk.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/951-bionic-ndk.patch b/packages/gcc-linaro/7.2-2017.11-rc1/951-bionic-ndk.patch
 new file mode 100644
 index 00000000..59c50a89
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/951-bionic-ndk.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/951-bionic-ndk.patch
 @@ -0,0 +1,58 @@
 +commit d38d37bdfe24b7ce1bdcb55642fb6b904718e68f
 +Author: Howard Chu <hyc@symas.com>
@@ -536,11 +541,11 @@ index 00000000..59c50a89
 + #if __cplusplus >= 201103L
 +     static const mask blank 	= space;
 + #endif
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/952-bionic-errno.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/952-bionic-errno.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/952-bionic-errno.patch b/packages/gcc-linaro/7.2-2017.11-rc1/952-bionic-errno.patch
 new file mode 100644
 index 00000000..91f6ca34
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/952-bionic-errno.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/952-bionic-errno.patch
 @@ -0,0 +1,19 @@
 +commit 6cd4ad106ef87a3c58b0c3478e78409b47000de0
 +Author: Howard Chu <hyc@symas.com>
@@ -561,11 +566,11 @@ index 00000000..91f6ca34
 + 
 +   if (entp)
 +     {
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/970-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/970-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/970-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/970-crystax.patch
 new file mode 100644
 index 00000000..7324d7fb
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/970-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/970-crystax.patch
 @@ -0,0 +1,553 @@
 +commit 080803512c8f6f87c2f1f711170d54033144d628
 +Author: Dmitry Moskalchuk <dm@crystax.net>
@@ -1120,11 +1125,11 @@ index 00000000..7324d7fb
 + # include <unistd.h>
 + # define _GLIBCXX_USE_FUTEX
 + # define _GLIBCXX_FUTEX_WAIT 0
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/971-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/971-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/971-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/971-crystax.patch
 new file mode 100644
 index 00000000..748a3812
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/971-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/971-crystax.patch
 @@ -0,0 +1,25 @@
 +commit 9f057b62caafe08c968103d39b5df82486a175c2
 +Author: Dmitry Moskalchuk <dm@crystax.net>
@@ -1151,11 +1156,11 @@ index 00000000..748a3812
 + 
 + # The "special" multilib can be used to build native applications for Android,
 + # as opposed to native shared libraries that are then called via JNI.
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/972-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/972-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/972-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/972-crystax.patch
 new file mode 100644
 index 00000000..b9077bef
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/972-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/972-crystax.patch
 @@ -0,0 +1,302 @@
 +commit 44a81ebb7698dac41ffa7acd5e0cc1578e5ab1fd
 +Author: H.J. Lu <hongjiu.lu@intel.com>
@@ -1459,11 +1464,11 @@ index 00000000..b9077bef
 +     && defined(inhibit_libc) \
 +     && (defined(__GLIBC__) || defined(__gnu_linux__) || defined(__GNU__))
 + /* On systems using glibc, an inhibit_libc build of libgcc is only
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/973-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/973-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/973-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/973-crystax.patch
 new file mode 100644
 index 00000000..b96ece33
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/973-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/973-crystax.patch
 @@ -0,0 +1,20 @@
 +commit 778a9ef107f51544d583f110e92b75f4d9d79117
 +Author: Dmitry Moskalchuk <dm@crystax.net>
@@ -1485,11 +1490,11 @@ index 00000000..b96ece33
 + 			   && flag_pie
 + 			   && !SYMBOL_REF_WEAK (op0)
 + 			   && !SYMBOL_REF_FUNCTION_P (op0)))
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/974-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/974-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/974-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/974-crystax.patch
 new file mode 100644
 index 00000000..9db4f545
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/974-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/974-crystax.patch
 @@ -0,0 +1,24 @@
 +commit dbeae1190cabad83999f2540523f045acc1bb4ec
 +Author: Dmitry Moskalchuk <dm@crystax.net>
@@ -1515,11 +1520,11 @@ index 00000000..9db4f545
 + 
 + #ifndef HIDE_EXPORTS
 + #pragma GCC visibility pop
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/975-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/975-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/975-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/975-crystax.patch
 new file mode 100644
 index 00000000..9efc2a48
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/975-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/975-crystax.patch
 @@ -0,0 +1,31 @@
 +commit 8a66d422721ae5999737d7825701ff22097d287b
 +Author: Andrew Hsieh <andrewhsieh@google.com>
@@ -1552,11 +1557,11 @@ index 00000000..9efc2a48
 + 	  align_bits = 128;
 + 	else if (memsize >= 8 && (align % 8) == 0)
 + 	  align_bits = 64;
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/976-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/976-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/976-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/976-crystax.patch
 new file mode 100644
 index 00000000..790d4a9d
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/976-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/976-crystax.patch
 @@ -0,0 +1,21 @@
 +commit 89d27bc45ee7325dcfff6748da0f8b9c1dc1f234
 +Author: Dmitry Moskalchuk <dm@crystax.net>
@@ -1579,11 +1584,11 @@ index 00000000..790d4a9d
 + #endif
 + 
 + static __inline void *
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/977-crystax.patch b/packages/gcc-linaro/snapshot-7.2-2017.10/977-crystax.patch
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/977-crystax.patch b/packages/gcc-linaro/7.2-2017.11-rc1/977-crystax.patch
 new file mode 100644
 index 00000000..0211d728
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/977-crystax.patch
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/977-crystax.patch
 @@ -0,0 +1,33 @@
 +commit 9ae82f7cfc1073820092dd9f957559667e77db0d
 +Author: Dmitry Moskalchuk <dm@crystax.net>
@@ -1618,19 +1623,19 @@ index 00000000..0211d728
 ++#ifdef IN_LIBGCC2
 ++#define LIBGCC2_UNWIND_ATTRIBUTE __attribute__((visibility("default")))
 ++#endif
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/chksum b/packages/gcc-linaro/snapshot-7.2-2017.10/chksum
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/chksum b/packages/gcc-linaro/7.2-2017.11-rc1/chksum
 new file mode 100644
-index 00000000..92e7df38
+index 00000000..5ad3e5bf
 --- /dev/null
-+++ b/packages/gcc-linaro/snapshot-7.2-2017.10/chksum
++++ b/packages/gcc-linaro/7.2-2017.11-rc1/chksum
 @@ -0,0 +1,4 @@
-+md5 gcc-linaro-snapshot-7.2-2017.08.tar.xz 9d9412c63e96f8aecff59e927e21ab77
-+sha1 gcc-linaro-snapshot-7.2-2017.08.tar.xz ddda3d9ec418b854f3507f3cbd6c041ea4e5f3f9
-+sha256 gcc-linaro-snapshot-7.2-2017.08.tar.xz 8d560e48d8e29f54cce1997043ba854739b33ed6c4d10414e28ba2e057cf4962
-+sha512 gcc-linaro-snapshot-7.2-2017.08.tar.xz e99a419744ddcfd2a73397c845f4d6b4086941cc0aedf7906bee9c7c2456b5fde3cc36278865425755524145df7e500f72169213ba694ab8806db2733e3a65ad
-diff --git a/packages/gcc-linaro/snapshot-7.2-2017.10/version.desc b/packages/gcc-linaro/snapshot-7.2-2017.10/version.desc
++md5 gcc-linaro-7.2-2017.11-rc1.tar.xz 5a1485a9b459a668b1f5b52ccec7c535
++sha1 gcc-linaro-7.2-2017.11-rc1.tar.xz 0f852ae7e8117506e2b8c8241e502e8f0119b905
++sha256 gcc-linaro-7.2-2017.11-rc1.tar.xz af7afd7ba3a1b8134860ca6f24f2a7bcdd9044d5d347dfda28b3e9460278a181
++sha512 gcc-linaro-7.2-2017.11-rc1.tar.xz 9fe709b2793b1b0d8a8bd5f420d5c37ceed284865b8fd844c451c9aebd670b5b5323e466e6c85a3e8744a68a80f6cf9fc589abc1ed0553138d36bbbd0a961aee
+diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/version.desc b/packages/gcc-linaro/7.2-2017.11-rc1/version.desc
 new file mode 100644
 index 00000000..e69de29b
 -- 
-2.15.0.rc0
+2.15.0.rc2
 
