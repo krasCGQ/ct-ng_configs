@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# crosstool-NG 8da8080a Configuration
+# crosstool-NG 9d0d79cc Configuration
 #
 CT_CONFIGURE_has_static_link=y
 CT_CONFIGURE_has_wget=y
@@ -243,7 +243,7 @@ CT_LINUX_V_4_13=y
 # CT_LINUX_V_3_4 is not set
 # CT_LINUX_V_3_2 is not set
 # CT_LINUX_V_2_6_32 is not set
-CT_LINUX_VERSION="4.13.4"
+CT_LINUX_VERSION="4.13.9"
 CT_LINUX_MIRRORS="$(CT_Mirrors kernel.org linux ${CT_LINUX_VERSION})"
 CT_LINUX_ARCHIVE_FILENAME="@{pkg_name}-@{version}"
 CT_LINUX_ARCHIVE_DIRNAME="@{pkg_name}-@{version}"
@@ -325,6 +325,7 @@ CT_ANDROID_NDK_PKG_NAME="android-ndk"
 CT_ANDROID_NDK_SRC_RELEASE=y
 # CT_ANDROID_NDK_SRC_DEVEL is not set
 # CT_ANDROID_NDK_SRC_CUSTOM is not set
+# CT_ANDROID_NDK_V_R16_BETA1 is not set
 CT_ANDROID_NDK_V_R15C=y
 # CT_ANDROID_NDK_V_R14B is not set
 CT_ANDROID_NDK_VERSION="r15c"
@@ -368,10 +369,10 @@ CT_GCC_LINARO_PKG_NAME="gcc-linaro"
 CT_GCC_LINARO_SRC_RELEASE=y
 # CT_GCC_LINARO_SRC_DEVEL is not set
 # CT_GCC_LINARO_SRC_CUSTOM is not set
-CT_GCC_LINARO_V_SNAPSHOT_7_2_2017_10=y
+CT_GCC_LINARO_V_7_2_2017_11_RC1=y
 # CT_GCC_LINARO_V_7_1_2017_08 is not set
 # CT_GCC_LINARO_V_6_4_2017_08 is not set
-CT_GCC_LINARO_VERSION="snapshot-7.2-2017.10"
+CT_GCC_LINARO_VERSION="7.2-2017.11-rc1"
 CT_GCC_LINARO_MIRRORS="$(CT_Mirrors Linaro gcc ${CT_GCC_LINARO_VERSION})"
 CT_GCC_LINARO_ARCHIVE_FILENAME="@{pkg_name}-@{version}"
 CT_GCC_LINARO_ARCHIVE_DIRNAME="@{pkg_name}-@{version}"
@@ -445,17 +446,16 @@ CT_GDB_PKG_NAME="gdb"
 CT_GDB_SRC_RELEASE=y
 # CT_GDB_SRC_DEVEL is not set
 # CT_GDB_SRC_CUSTOM is not set
-CT_GDB_V_8_0=y
+CT_GDB_V_8_0_1=y
 # CT_GDB_V_7_12_1 is not set
 # CT_GDB_V_7_11_1 is not set
-CT_GDB_VERSION="8.0"
+CT_GDB_VERSION="8.0.1"
 CT_GDB_MIRRORS="$(CT_Mirrors GNU gdb) $(CT_Mirrors sourceware gdb/releases)"
 CT_GDB_ARCHIVE_FILENAME="@{pkg_name}-@{version}"
 CT_GDB_ARCHIVE_DIRNAME="@{pkg_name}-@{version}"
 CT_GDB_ARCHIVE_FORMATS=".tar.xz .tar.gz"
 CT_GDB_SIGNATURE_FORMAT=""
 CT_GDB_8_0_or_later=y
-CT_GDB_8_0_or_older=y
 CT_GDB_7_2_or_later=y
 CT_GDB_7_0_or_later=y
 CT_GDB_CROSS=y
