@@ -1,6 +1,6 @@
-From 916747254701c23622df9ae75416884d68a0cf20 Mon Sep 17 00:00:00 2001
+From 28c4766b6643e4ef5dc10484c16e4f3c9ed19c40 Mon Sep 17 00:00:00 2001
 From: Albert I <krascgq@outlook.co.id>
-Date: Wed, 18 Oct 2017 00:31:43 +0800
+Date: Wed, 8 Nov 2017 08:35:42 +0800
 Subject: [PATCH] Add Linaro Snapshot 7.2-2017.11-rc1
 
 The only reason to add this is to workaround some shit that happens
@@ -1637,5 +1637,5 @@ diff --git a/packages/gcc-linaro/7.2-2017.11-rc1/version.desc b/packages/gcc-lin
 new file mode 100644
 index 00000000..e69de29b
 -- 
-2.15.0.rc2
+2.15.0
 
