@@ -9,7 +9,6 @@ CT_ARCH_64=y
 CT_ARCH_ARCH="armv8-a+crc+crypto"
 CT_STATIC_TOOLCHAIN=y
 # CT_SHOW_CT_VERSION is not set
-CT_TOOLCHAIN_BUGURL="https://github.com/krasCGQ/aarch64-linux-android/issues/new"
 CT_TARGET_VENDOR="opt"
 CT_KERNEL_LINUX=y
 CT_LINUX_SRC_DEVEL=y
