@@ -4,12 +4,15 @@ CT_PREFIX_DIR="${CT_PREFIX:-${CT_TOP_DIR}/out}/${CT_HOST:+HOST-${CT_HOST}/}${CT_
 # CT_PREFIX_DIR_RO is not set
 CT_STRIP_TARGET_TOOLCHAIN_EXECUTABLES=y
 CT_PATCH_NONE=y
+# CT_LOG_PROGRESS_BAR is not set
 # CT_LOG_TO_FILE is not set
 CT_ARCH_ARM=y
 CT_ARCH_64=y
 CT_ARCH_ARCH="armv8-a+crc+crypto"
 CT_STATIC_TOOLCHAIN=y
 # CT_SHOW_CT_VERSION is not set
+CT_TOOLCHAIN_PKGVERSION="GNU Toolchain built by KudDroid"
+CT_TOOLCHAIN_BUGURL="https://github.com/krasCGQ/aarch64-linux-android/issues/new"
 CT_TARGET_VENDOR="opt"
 CT_KERNEL_LINUX=y
 CT_LINUX_SRC_DEVEL=y
